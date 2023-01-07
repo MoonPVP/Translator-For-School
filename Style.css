@@ -1,0 +1,19 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  #content {
+    padding-top: 50px; /* add some space to account for the fixed navbar */
+  }
+  body {
+    background-image: url(image.jpg);
+    filter: brightness(50%); /* make the image 50% as bright as its original value */
+  }
+  
+  

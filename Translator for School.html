@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      #result {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="text-to-translate">Enter text to translate:</label><br>
+      <textarea id="text-to-translate"></textarea><br>
+      <label for="language">Select language:</label><br>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="es">Spanish</option>
+      </select><br>
+      <input type="submit" value="Translate">
+    </form> 
+    <div id="result"></div>
+
+    <script>
+      const form = document.querySelector('form');
+      const textToTranslate = document.querySelector('#text-to-translate');
+      const languageSelect = document.querySelector('#language');
+      const resultDiv = document.querySelector('#result');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const languageCode = languageSelect.value;
+        const text = textToTranslate.value;
+
+        if (languageCode === 'es') {
+          resultDiv.innerHTML = 'Hola';
+        } else {
+          const speechSynthesisUtterance = new SpeechSynthesisUtterance();
+          speechSynthesisUtterance.text = text;
+          speechSynthesisUtterance.lang = languageCode;
+          window.speechSynthesis.speak(speechSynthesisUtterance);
+          resultDiv.innerHTML = text;
+        }
+      });
+    </script>
+  </body>
+</html>
